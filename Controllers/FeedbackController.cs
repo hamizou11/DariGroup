@@ -35,7 +35,6 @@ namespace DariGroupe.Controllers
                 postTask.Wait();
 
                 var result = postTask.Result;
-                Response.Write("<script>alert('" + result + "')</script>");
                 if (result.IsSuccessStatusCode)
                 {
                     Response.Write("<script>alert('" + "Feedback Sent!" + "')</script>");
