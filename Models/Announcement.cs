@@ -16,5 +16,6 @@ namespace DariGroupe.Models
 		public DateTime startDate { get; set; }
 		public DateTime endDate { get; set; }
 		public long duration { get; set; }
+		//////hediane 
 	}
 }
