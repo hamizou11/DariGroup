@@ -124,12 +124,14 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\BenefitsController.cs" />
+    <Compile Include="Controllers\FeedbackController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\Benefits.cs" />
     <Compile Include="Models\Class1.cs" />
+    <Compile Include="Models\Feedback.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -288,6 +290,7 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Shared\Custom_Layout.cshtml" />
     <Content Include="Views\Benefits\Index.cshtml" />
+    <Content Include="Views\Feedback\Create.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
