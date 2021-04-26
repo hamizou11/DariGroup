@@ -1,0 +1,15 @@
+﻿@model DariGroupe.Models.Paylink
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+    <head>
+        <meta http-equiv="refresh" content="0; URL=@Html.DisplayFor(model => model.linktext)" />
+    </head>
+
+<h2>Redirecting to Paypal</h2>
+
+<h4>Paylink</h4>
+<p>@Html.DisplayFor(model => model.linktext)</p>
