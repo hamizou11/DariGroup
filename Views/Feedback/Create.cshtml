@@ -11,8 +11,6 @@
 <div style="margin: auto;width: 60%;padding: 10px;">
     <h2>Contact Priority Support</h2>
     <br />
-
-
     @using (Html.BeginForm())
     {
         @Html.AntiForgeryToken()
@@ -45,11 +43,17 @@
             <div class="form-group">
                 <div class="col-md-offset-2 col-md-10">
                     <input type="submit" value="Send Email!" class="btn btn-default" />
+                    <a class="btn btn-default"
+                       style="
+        background-color: #27DA93;
+        border: none;
+        color: white;
+        font-size: 16px;" href="../Home/Index">Go Back</a>
                 </div>
             </div>
         </div>
-        <br />
-        <br />
-        <br />
     }
 </div>
+<br />
+<br />
+<br />
