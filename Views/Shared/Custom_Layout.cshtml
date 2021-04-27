@@ -10,6 +10,9 @@ License URL: http://creativecommons.org/licenses/by/3.0/
     <title>Real Home A Real Estate Category Flat Bootstarp Resposive Website Template | Home :: w3layouts</title>
     @Styles.Render("~/template/css")
     @Styles.Render("~/template/js")
+    <script async defer
+            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD_cnhXyrD3sh_t2t75KWOyX0rHz71mEpU&callback=initMap">
+    </script>
 
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -18,7 +21,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyErricsson, Motorola web design" />
     <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
     <!-- slide -->
-  
+
     <script>
         $(function () {
             $("#slider").responsiveSlides({
@@ -196,7 +199,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                         </a>
                     </div>
                     <div class=" bottom-head">
-                        <a href="buy.html">
+                        <a href="@Url.Action("Index","Rentingannonce")">
                             <div class="buy-media">
                                 <i class="rent"> </i>
                                 <h6>Rent</h6>

@@ -1,0 +1,98 @@
+﻿
+
+@{
+    ViewBag.Title = "Renting";
+    Layout = "~/Views/Shared/Custom_Layout.cshtml";
+}
+
+<h2>Renting</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<div class=" bottom-head">
+    <a href="@Url.Action("LastRenting", "Rentingannonce")">latest</a>
+</div>
+<a href="@Url.Action("Best", "Rentingannonce")">bestreveiewed</a>
+<table class="table">
+
+    @foreach (var p in ViewBag.result)
+    {
+        <tr>
+            <td>@p.title</td>
+            <td>@p.adresse</td>
+            <td>@p.price</td>
+            <td>@p.innerSurface</td>
+            <td>@p.planeSurface</td>
+            <td>@p.roomNumber</td>
+            <td>@p.statePrice</td>
+            <td>@p.createdAt</td>
+
+
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = @p.id }) |
+                @Html.ActionLink("Details", "Details", new { id = @p.id }) |
+                @Html.ActionLink("Delete", "Delete", new { id = @p.id })
+            </td>
+        </tr>
+    }
+
+</table>
+
+    <div class="container">
+        <div class="future">
+            <h3>Fetured Projects</h3>
+            <div class="content-bottom-in">
+                <ul id="flexiselDemo1">
+                    @foreach (var a in ViewBag.result)
+                    {
+
+                        <li>
+                            <div class="project-fur">
+                                <a href="single.html"><img class="img-responsive" src="~/Content/images/pi.jpg" alt="" />	</a>
+                                <div class="fur">
+                                    <div class="fur1">
+                                        <span class="fur-money">@a.price </span>
+                                        <h6 class="fur-name"><a href="single.html">@a.title</a></h6>
+                                        <span>@a.adresse</span>
+                                    </div>
+                                    <div class="fur2">
+                                        <span>2 BHK</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                    }
+
+                    </ul>
+                <script type="text/javascript">
+                    $(window).load(function () {
+                        $("#flexiselDemo1").flexisel({
+                            visibleItems: 4,
+                            animationSpeed: 1000,
+                            autoPlay: true,
+                            autoPlaySpeed: 3000,
+                            pauseOnHover: true,
+                            enableResponsiveBreakpoints: true,
+                            responsiveBreakpoints: {
+                                portrait: {
+                                    changePoint: 480,
+                                    visibleItems: 1
+                                },
+                                landscape: {
+                                    changePoint: 640,
+                                    visibleItems: 2
+                                },
+                                tablet: {
+                                    changePoint: 768,
+                                    visibleItems: 3
+                                }
+                            }
+                        });
+
+                    });
+                </script>
+                <script type="text/javascript" src="~/Scripts/jquery.flexisel.js"></script>
+            </div>
+        </div>
+    </div>

@@ -84,3 +84,5 @@ C:\Users\hamzo\source\repos\DariGroupe\obj\Debug\DariGroupe.csproj.CoreCompileIn
 C:\Users\hamzo\source\repos\DariGroupe\obj\Debug\DariGroupe.csproj.CopyComplete
 C:\Users\hamzo\source\repos\DariGroupe\obj\Debug\DariGroupe.dll
 C:\Users\hamzo\source\repos\DariGroupe\obj\Debug\DariGroupe.pdb
+C:\Users\hamzo\source\repos\DariGroupe\bin\System.Net.Http.Formatting.dll
+C:\Users\hamzo\source\repos\DariGroupe\bin\System.Net.Http.Formatting.xml
