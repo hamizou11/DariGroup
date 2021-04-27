@@ -213,7 +213,7 @@ namespace DariGroupe.Controllers
             using (var client = new HttpClient())
             {
                 client.BaseAddress = new Uri("http://localhost:8090");
-                var responseTask = client.GetAsync("/GetDetail/" + id.ToString());
+                var responseTask = client.GetAsync("/affect/12/" + id.ToString());
                 responseTask.Wait();
 
                 var result = responseTask.Result;
@@ -230,19 +230,15 @@ namespace DariGroupe.Controllers
          [HttpPost]
         public ActionResult Affect(Announcement announcement, int id, Favorites favoris)
         {
-            using (var client = new HttpClient())
+            try
             {
-                client.BaseAddress = new Uri("http://localhost:8090");
-                var putTask = client.PutAsJsonAsync<Announcement>("/affect/" + favoris.id.ToString() + "/" + id.ToString(), announcement);
+                // TODO: Add delete logic here
 
-                putTask.Wait();
-
-                var ressult = putTask.Result;
-                if (ressult.IsSuccessStatusCode)
-
-                    return RedirectToAction("Index");
-                return View(announcement);
-
+                return RedirectToAction("Index");
+            }
+            catch
+            {
+                return View();
             }
         }
     }
