@@ -10,5 +10,6 @@ namespace DariGroupe.Models
         public string cam { get; set; }
 
         public string ins { get; set; }
+        public string st { get; set; }
     }
 }
