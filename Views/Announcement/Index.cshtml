@@ -6,9 +6,23 @@
 
 <h2>Index</h2>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
+<table>
+    <th>
+        @Html.ActionLink("Create New", "Create") ||
+    </th>
+    <th>
+        @Html.ActionLink("Order", "order") ||
+    </th>
+    <th>
+        <a href="http://localhost:8090/annonce/export/pdf/12">Export PDF your announcement</a>
+    </th>
+</table>
+   
+
+
+
+   
+
 <table class="table">
     <tr>
         <th>
@@ -38,11 +52,14 @@
         <td>
             @Html.DisplayFor(modelItem => item.startDate)
         </td>
-      
+        
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.id }) |
-            @Html.ActionLink("Details", "Details", new { id=item.id }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.id })
+            @Html.ActionLink("Edit", "Edit", new { id = item.id }) |
+            @Html.ActionLink("Details", "Details", new { id = item.id }) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.id })
+            <div>
+                <a href="http://localhost:8090/count">Number of announcement</a>
+            </div>
         </td>
     </tr>
 }

@@ -16,7 +16,7 @@ namespace DariGroupe.Controllers
             IEnumerable<Announcement> list = null;
             using (var a = new HttpClient())
             {
-                a.BaseAddress = new Uri("http://localhost:8089");
+                a.BaseAddress = new Uri("http://localhost:8090");
                 var responseTask = a.GetAsync("/getAll");
                 responseTask.Wait();
                 var result = responseTask.Result;
@@ -43,7 +43,7 @@ namespace DariGroupe.Controllers
             {
                 //client.DefaultRequestHeaders.Clear();
                 // client.DefaultRequestHeaders.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", str);
-                client.BaseAddress = new Uri("http://localhost:8089/");
+                client.BaseAddress = new Uri("http://localhost:8090/");
                 //  client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", "Your Oauth token");
                 var responseTask = client.GetAsync("GetDetail/" + id.ToString());
                 responseTask.Wait();
@@ -73,7 +73,7 @@ namespace DariGroupe.Controllers
             { // TODO: Add insert logic here
 
 
-                client.BaseAddress = new Uri("http://localhost:8089");
+                client.BaseAddress = new Uri("http://localhost:8090");
                 var post = client.PostAsJsonAsync<Announcement>("/add", a);
                 post.Wait();
                 var postResult = post.Result;
@@ -92,7 +92,7 @@ namespace DariGroupe.Controllers
             {
                 //client.DefaultRequestHeaders.Clear();
                 // client.DefaultRequestHeaders.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", str);
-                client.BaseAddress = new Uri("http://localhost:8089/");
+                client.BaseAddress = new Uri("http://localhost:8090/");
                 //  client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", "Your Oauth token");
                 var responseTask = client.GetAsync("GetDetail/" + id.ToString());
                 responseTask.Wait();
@@ -116,7 +116,7 @@ namespace DariGroupe.Controllers
             {
 
 
-                client.BaseAddress = new Uri("http://localhost:8089/");
+                client.BaseAddress = new Uri("http://localhost:8090/");
                 var putTask = client.PutAsJsonAsync<Announcement>("modify/", announcement);
                 putTask.Wait();
 
@@ -136,7 +136,7 @@ namespace DariGroupe.Controllers
         {
             using (var client = new HttpClient())
             {
-                client.BaseAddress = new Uri("http://localhost:8089");
+                client.BaseAddress = new Uri("http://localhost:8090");
                 var deleteAnnouncement = client.DeleteAsync("delete/" + id.ToString());
                 var result = deleteAnnouncement.Result;
                 if (result.IsSuccessStatusCode)
@@ -159,6 +159,30 @@ namespace DariGroupe.Controllers
             {
                 return View();
             }
+        }
+        public ActionResult PDF()
+        {
+            using (var client = new HttpClient())
+            {
+                client.BaseAddress = new Uri("http://localhost:8090");
+                var pdf = client.DeleteAsync("/annonce/export/pdf/12");
+                var result = pdf.Result;
+                if (result.IsSuccessStatusCode)
+                    return RedirectToAction("Index");
+            }
+            return View();
+        }
+        public ActionResult order()
+        {
+            using (var client = new HttpClient())
+            {
+                client.BaseAddress = new Uri("http://localhost:8090");
+                var deleteAnnouncement = client.GetAsync("/order");
+                var result = deleteAnnouncement.Result;
+                if (result.IsSuccessStatusCode)
+                    return RedirectToAction("Index");
+            }
+            return View();
         }
     }
 }
