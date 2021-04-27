@@ -2,6 +2,7 @@
 
 @{
     ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <h2>Index</h2>
@@ -24,16 +25,14 @@
    
 
 <table class="table">
-    <tr>
-        <th>
+    <tr style="text-align: center; background-color: grey;  color: white;font-size: 20px">
+        <th style="text-align: center; background-color: grey;  color: white;font-size: 20px">
             @Html.DisplayNameFor(model => model.title)
         </th>
-      
-       
-        <th>
+        <th style="text-align: center; background-color: grey;  color: white;font-size: 20px">
             @Html.DisplayNameFor(model => model.type)
         </th>
-        <th>
+        <th style="text-align: center; background-color: grey;  color: white;font-size: 20px">
             @Html.DisplayNameFor(model => model.startDate)
         </th>
        
@@ -43,20 +42,21 @@
 
 @foreach (var item in Model) {
     <tr>
-        <td>
+        <td style="text-align: center;">
             @Html.DisplayFor(modelItem => item.title)
         </td>
-        <td>
+        <td style="text-align: center;">
             @Html.DisplayFor(modelItem => item.type)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.startDate)
         </td>
-        
-        <td>
+     
+        <td style="text-align: center;">
             @Html.ActionLink("Edit", "Edit", new { id = item.id }) |
             @Html.ActionLink("Details", "Details", new { id = item.id }) |
-            @Html.ActionLink("Delete", "Delete", new { id = item.id })
+            @Html.ActionLink("Delete", "Delete", new { id = item.id }) |
+            @Html.ActionLink("Favoris", "Affect", new { id = item.id })
             <div>
                 <a href="http://localhost:8090/count">Number of announcement</a>
             </div>

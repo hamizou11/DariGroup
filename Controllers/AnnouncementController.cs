@@ -184,5 +184,66 @@ namespace DariGroupe.Controllers
             }
             return View();
         }
+        public ActionResult IndexFront()
+        {
+            IEnumerable<Announcement> list = null;
+            HttpClient a = new HttpClient();
+            a.BaseAddress = new Uri("http://localhost:8090");
+            var responseTask = a.GetAsync("getAll");
+            responseTask.Wait();
+            var result = responseTask.Result;
+            if (result.IsSuccessStatusCode)
+            {
+                var readJob = result.Content.ReadAsAsync<IList<Announcement>>();
+                readJob.Wait();
+                list = readJob.Result;
+            }
+            else
+            {
+                list = Enumerable.Empty<Announcement>();
+                ModelState.AddModelError(string.Empty, "serveur error");
+            }
+
+            return View(list);
+        }
+        public ActionResult Affect(int id)
+        {
+            Announcement announcement = null;
+
+            using (var client = new HttpClient())
+            {
+                client.BaseAddress = new Uri("http://localhost:8090");
+                var responseTask = client.GetAsync("/GetDetail/" + id.ToString());
+                responseTask.Wait();
+
+                var result = responseTask.Result;
+                if (result.IsSuccessStatusCode)
+                {
+                    var readTask = result.Content.ReadAsAsync<Announcement>();
+                    readTask.Wait();
+
+                    announcement = readTask.Result;
+                }
+            }
+            return View(announcement);
+        }
+         [HttpPost]
+        public ActionResult Affect(Announcement announcement, int id, Favorites favoris)
+        {
+            using (var client = new HttpClient())
+            {
+                client.BaseAddress = new Uri("http://localhost:8090");
+                var putTask = client.PutAsJsonAsync<Announcement>("/affect/" + favoris.id.ToString() + "/" + id.ToString(), announcement);
+
+                putTask.Wait();
+
+                var ressult = putTask.Result;
+                if (ressult.IsSuccessStatusCode)
+
+                    return RedirectToAction("Index");
+                return View(announcement);
+
+            }
+        }
     }
 }
